@@ -1,0 +1,74 @@
+.pagina {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 64px 24px;
+}
+
+.tarjeta {
+  width: 100%;
+  max-width: 820px;
+  background-color: var(--color-superficie);
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 20px 40px -20px rgba(46, 33, 24, 0.25);
+}
+
+.franja {
+  height: 10px;
+  background: repeating-linear-gradient(
+    45deg,
+    var(--color-acento),
+    var(--color-acento) 16px,
+    var(--color-acento-suave) 16px,
+    var(--color-acento-suave) 32px
+  );
+}
+
+.encabezado {
+  text-align: center;
+  padding: 40px 32px 24px;
+  border-bottom: 1px solid var(--borde);
+}
+
+.icono-taza {
+  width: 44px;
+  height: 44px;
+  color: var(--color-acento);
+  margin: 0 auto 12px;
+}
+
+.encabezado h1 {
+  font-family: 'Fraunces', serif;
+  font-size: 2.4rem;
+  font-weight: 700;
+  margin: 0 0 6px;
+}
+
+.encabezado p {
+  margin: 0;
+  color: var(--color-texto-suave);
+  font-size: 1rem;
+}
+
+/* --- RESPONSIVE --- */
+/* En pantallas angostas (celular), reducimos el aire alrededor de la tarjeta
+   y el tamaño del título para que no se vea apretado ni desbordado */
+@media (max-width: 640px) {
+  .pagina {
+    padding: 24px 12px;
+  }
+
+  .tarjeta {
+    border-radius: 12px;
+  }
+
+  .encabezado {
+    padding: 28px 16px 18px;
+  }
+
+  .encabezado h1 {
+    font-size: 1.7rem;
+  }
+}

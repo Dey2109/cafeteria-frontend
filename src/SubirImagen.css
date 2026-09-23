@@ -1,0 +1,46 @@
+.subir-imagen {
+  margin: 16px 0;
+}
+
+.subir-imagen input[type="file"] {
+  width: 100%;
+  padding: 10px;
+  border: 2px dashed var(--borde);
+  border-radius: 8px;
+  background-color: var(--color-fondo);
+  cursor: pointer;
+}
+
+.vista-previa-imagen {
+  margin-top: 12px;
+  text-align: center;
+}
+
+.vista-previa-imagen img {
+  max-width: 200px;
+  max-height: 200px;
+  border-radius: 8px;
+  border: 1px solid var(--borde);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.btn-subir {
+  margin-top: 12px;
+  padding: 10px 20px;
+  background-color: var(--color-total);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  width: 100%;
+}
+
+.btn-subir:hover {
+  background-color: #325a41;
+}
+
+.btn-subir:disabled {
+  background-color: #999;
+  cursor: not-allowed;
+}
