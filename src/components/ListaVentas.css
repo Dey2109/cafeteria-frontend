@@ -1,1 +1,179 @@
-/* Los estilos ya están en index.css */
+/* ========================================
+   TABLA DE VENTAS
+   ======================================== */
+.contenedor-tabla {
+  padding: 8px 32px 36px;
+}
+
+.vacio, .cargando {
+  text-align: center;
+  color: var(--color-texto-suave);
+  padding: 32px 0;
+  font-size: 1rem;
+}
+
+.tabla-ventas {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+}
+
+.tabla-ventas thead th {
+  text-align: left;
+  padding: 12px 14px;
+  background-color: var(--color-texto);
+  color: var(--color-fondo);
+  font-weight: 500;
+}
+
+.tabla-ventas thead th:first-child {
+  border-radius: 8px 0 0 8px;
+}
+
+.tabla-ventas thead th:last-child {
+  border-radius: 0 8px 8px 0;
+}
+
+.tabla-ventas tbody td {
+  padding: 12px 14px;
+  border-bottom: 1px solid var(--borde);
+}
+
+.tabla-ventas tbody tr:nth-child(even) {
+  background-color: var(--color-fondo);
+}
+
+.tabla-ventas tbody tr:hover {
+  background-color: var(--color-acento-suave);
+}
+
+.producto-con-icono {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.miniatura-tabla {
+  width: 40px;
+  height: 40px;
+  object-fit: cover;
+  border-radius: 8px;
+  background-color: var(--color-superficie);
+  border: 1px solid var(--borde);
+}
+
+.centrado {
+  text-align: center;
+}
+
+.total {
+  color: var(--color-total);
+  font-weight: 600;
+}
+
+.grupo-acciones {
+  display: flex;
+  gap: 6px;
+}
+
+.btn-editar, .btn-eliminar {
+  padding: 6px 12px;
+  border: none;
+  border-radius: 6px;
+  color: white;
+  font-family: 'Work Sans', sans-serif;
+  font-weight: 500;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: opacity 0.15s ease;
+}
+
+.btn-editar {
+  background-color: var(--color-acento-suave);
+  color: var(--color-texto);
+}
+
+.btn-eliminar {
+  background-color: var(--color-acento);
+}
+
+.btn-editar:hover, .btn-eliminar:hover {
+  opacity: 0.85;
+}
+
+.panel-edicion {
+  margin-top: 20px;
+  padding-top: 16px;
+  border-top: 1px dashed var(--borde);
+}
+
+.btn-cancelar {
+  padding: 6px 12px;
+  border: none;
+  background-color: transparent;
+  color: var(--color-acento);
+  font-family: 'Work Sans', sans-serif;
+  font-weight: 500;
+  font-size: 0.85rem;
+  cursor: pointer;
+  margin-bottom: 10px;
+  text-decoration: underline;
+}
+
+/* ========================================
+   RESPONSIVE - MÓVIL
+   ======================================== */
+@media (max-width: 640px) {
+  .contenedor-tabla {
+    padding: 16px;
+  }
+
+  .tabla-ventas thead {
+    display: none;
+  }
+
+  .tabla-ventas,
+  .tabla-ventas tbody,
+  .tabla-ventas tr,
+  .tabla-ventas td {
+    display: block;
+    width: 100%;
+  }
+
+  .tabla-ventas tr {
+    margin-bottom: 14px;
+    border: 1px solid var(--borde);
+    border-radius: 10px;
+    overflow: hidden;
+    background-color: var(--color-superficie);
+  }
+
+  .tabla-ventas td {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: right;
+    padding: 10px 14px;
+    border-bottom: 1px solid var(--borde);
+  }
+
+  .tabla-ventas td:last-child {
+    border-bottom: none;
+  }
+
+  .tabla-ventas td::before {
+    content: attr(data-label);
+    font-weight: 600;
+    color: var(--color-texto-suave);
+    text-align: left;
+  }
+
+  .grupo-acciones {
+    justify-content: flex-end;
+  }
+
+  .miniatura-tabla {
+    width: 36px;
+    height: 36px;
+  }
+}

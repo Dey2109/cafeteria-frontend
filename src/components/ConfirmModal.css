@@ -1,0 +1,75 @@
+.confirm-overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(46, 33, 24, 0.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+  padding: 20px;
+  animation: aparecer-overlay 0.15s ease-out;
+}
+
+.confirm-tarjeta {
+  background-color: var(--color-superficie);
+  border-radius: 14px;
+  padding: 24px;
+  max-width: 380px;
+  width: 100%;
+  box-shadow: 0 20px 40px -10px rgba(46, 33, 24, 0.4);
+  animation: aparecer-tarjeta-confirm 0.2s ease-out;
+}
+
+.confirm-mensaje {
+  margin: 0 0 20px;
+  font-family: 'Work Sans', sans-serif;
+  font-size: 1rem;
+  color: var(--color-texto);
+  line-height: 1.5;
+}
+
+.confirm-botones {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+.confirm-botones button {
+  padding: 9px 18px;
+  border: none;
+  border-radius: 8px;
+  font-family: 'Work Sans', sans-serif;
+  font-weight: 600;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: opacity 0.15s ease;
+}
+
+.confirm-btn-cancelar {
+  background-color: var(--color-fondo);
+  color: var(--color-texto);
+}
+
+.confirm-btn-peligroso {
+  background-color: var(--color-acento);
+  color: white;
+}
+
+.confirm-btn-normal {
+  background-color: var(--color-total);
+  color: white;
+}
+
+.confirm-botones button:hover {
+  opacity: 0.85;
+}
+
+@keyframes aparecer-overlay {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes aparecer-tarjeta-confirm {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}

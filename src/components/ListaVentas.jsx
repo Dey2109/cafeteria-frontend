@@ -2,14 +2,16 @@ import React, { useEffect, useState } from 'react';
 import { api } from '../api';
 import EditarVenta from './EditarVenta';
 import { useToast } from './ToastContext';
+import { useConfirm } from './ConfirmContext';
 import './ListaVentas.css';
 
 function ListaVentas() {
   const [ventas, setVentas] = useState([]);
   const [ventaSeleccionada, setVentaSeleccionada] = useState(null);
   const [cargando, setCargando] = useState(true);
-  
+
   const { addToast } = useToast();
+  const { confirmar } = useConfirm();
 
   const cargarVentas = () => {
     setCargando(true);
@@ -26,21 +28,27 @@ function ListaVentas() {
     cargarVentas();
   }, []);
 
-  const eliminarVenta = (id) => {
-    if (window.confirm('¿Seguro que deseas eliminar esta venta?')) {
-      api.delete(`/ventas/${id}`)
-        .then(() => {
-          addToast('Venta eliminada correctamente.', 'success');
-          cargarVentas();
-          if (ventaSeleccionada && ventaSeleccionada.id === id) {
-            setVentaSeleccionada(null);
-          }
-        })
-        .catch(err => {
-          console.error('Error al eliminar venta:', err);
-          addToast('Error al eliminar la venta.', 'error');
-        });
-    }
+  // 'async' porque ahora esperamos (await) la respuesta del modal personalizado
+  const eliminarVenta = async (id) => {
+    const aceptado = await confirmar('¿Seguro que deseas eliminar esta venta?', {
+      textoConfirmar: 'Eliminar',
+      peligroso: true
+    });
+
+    if (!aceptado) return; // el usuario canceló, no hacemos nada más
+
+    api.delete(`/ventas/${id}`)
+      .then(() => {
+        addToast('Venta eliminada correctamente.', 'success');
+        cargarVentas();
+        if (ventaSeleccionada && ventaSeleccionada.id === id) {
+          setVentaSeleccionada(null);
+        }
+      })
+      .catch(err => {
+        console.error('Error al eliminar venta:', err);
+        addToast('Error al eliminar la venta.', 'error');
+      });
   };
 
   const manejarActualizacion = () => {
@@ -79,10 +87,10 @@ function ListaVentas() {
                 <td data-label="Estudiante">{v.estudiante}</td>
                 <td data-label="Producto">
                   <span className="producto-con-icono">
-                    <img 
-                      src={v.producto_imagen || 'https://cdn-icons-png.flaticon.com/512/720/720826.png'} 
-                      alt={v.producto} 
-                      className="miniatura-tabla" 
+                    <img
+                      src={v.producto_imagen || 'https://cdn-icons-png.flaticon.com/512/720/720826.png'}
+                      alt={v.producto}
+                      className="miniatura-tabla"
                     />
                     {v.producto}
                   </span>

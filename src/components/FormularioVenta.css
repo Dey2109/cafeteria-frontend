@@ -1,1 +1,115 @@
-/* Los estilos ya están en index.css */
+/* ========================================
+   FORMULARIO DE VENTA
+   ======================================== */
+.contenedor-formulario {
+  padding: 24px 32px 8px;
+  border-bottom: 1px solid var(--borde);
+}
+
+.contenedor-formulario h2 {
+  font-family: 'Fraunces', serif;
+  font-size: 1.3rem;
+  margin: 0 0 16px;
+}
+
+.vista-previa-producto {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px;
+  margin-bottom: 16px;
+  background-color: var(--color-fondo);
+  border: 1px solid var(--borde);
+  border-radius: 10px;
+}
+
+.miniatura-producto {
+  width: 56px;
+  height: 56px;
+  object-fit: cover;
+  border-radius: 8px;
+  background-color: var(--color-superficie);
+  border: 1px solid var(--borde);
+}
+
+.info-previa {
+  display: flex;
+  flex-direction: column;
+}
+
+.precio-previa {
+  color: var(--color-total);
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.formulario-venta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.formulario-venta select,
+.formulario-venta input {
+  flex: 1 1 160px;
+  padding: 10px 12px;
+  border: 1px solid var(--borde);
+  border-radius: 8px;
+  font-family: 'Work Sans', sans-serif;
+  font-size: 0.95rem;
+  color: var(--color-texto);
+  background-color: var(--color-fondo);
+}
+
+.formulario-venta select:focus,
+.formulario-venta input:focus {
+  outline: 2px solid var(--color-acento);
+  outline-offset: 1px;
+}
+
+.formulario-venta button {
+  flex: 1 1 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  background-color: var(--color-acento);
+  color: white;
+  font-family: 'Work Sans', sans-serif;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.15s ease;
+}
+
+.formulario-venta button:hover {
+  background-color: #8f2e24;
+}
+
+.formulario-venta button:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.mensaje-confirmacion {
+  margin-top: 12px;
+  padding: 10px;
+  background-color: #d4edda;
+  color: #155724;
+  border-radius: 6px;
+  text-align: center;
+  font-weight: 500;
+}
+
+/* ========================================
+   RESPONSIVE - MÓVIL
+   ======================================== */
+@media (max-width: 640px) {
+  .contenedor-formulario {
+    padding: 16px;
+  }
+
+  .formulario-venta select,
+  .formulario-venta input {
+    flex: 1 1 100%;
+  }
+}
